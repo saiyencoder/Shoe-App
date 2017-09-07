@@ -1,0 +1,9 @@
+<h1>Shoe Info</h1>
+<h2>Name: <%= @shoe.name %> </h2>
+<h2>Description: <%= @shoe.color %> </h2>
+<h2>Price: $<%= @shoe.price %> </h2> 
+<h2> <%= @shoe.sale_message  %> </h2>
+<img src= <%= @shoe.image %> >
+
+<%= link_to "Edit Shoe", "/shoes/#{ @shoe.id }/edit", class: "btn btn-warning" %>
+<%= link_to "Delete Shoe", "/shoes/#{ @shoe.id }", method: :delete, class: "btn btn-danger" %>

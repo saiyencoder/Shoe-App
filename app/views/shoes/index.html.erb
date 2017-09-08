@@ -1,12 +1,10 @@
 <div>
   <% @shoes.each do |shoe| %>
-      <div class="col-md-4 col-sm-6 product-index-single">
+      <div class="col-md-4 col-sm-6 product-index-single col-container">
         <div class="well">
           <h2>Name:  <a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></h2>
           <h2>Color: <%= shoe.color%></h2>
           <h2>Price: $<%= shoe.price%></h2>
-          <h2>Tax: $<%= shoe.tax %></h2>
-          <h2>Total: $<%= shoe.total %></h2>
           <img src="<%= shoe.image %>" alt="" >
         </div>
       </div>

@@ -7,11 +7,33 @@ body {
 }
 
 .product-index-single {
-  height: 600px;
+  height: 700px;
 }
 
 .well img {
     width: 100%;
+}
+
+.show-shoe {
+  padding: 50px;
+}
+
+img.resize {
+  width: 50%;
+  height: 50%;
+}
+
+.col-container {
+  display: table;
+  width: 100%;
+}
+
+.well {
+  display: table-cell;
+}
+
+.red-price {
+  color: red;
 }
 
 

@@ -1,9 +1,17 @@
 <h1>Shoe Info</h1>
 <h2>Name: <%= @shoe.name %> </h2>
 <h2>Description: <%= @shoe.color %> </h2>
-<h2>Price: $<%= @shoe.price %> </h2> 
-<h2> <%= @shoe.sale_message  %> </h2>
-<img src= <%= @shoe.image %> >
+<h2 class="<%= "red-price" if @shoe.discounted? %>" >Price: <%= number_to_currency(@shoe.price) %> </h2> 
+<h2>Tax: <%= number_to_currency(@shoe.tax) %></h2>
+<h2>Total: <%= number_to_currency(@shoe.total) %></h2>
+<% if @shoe.discounted?  %>
+  <h2> Discount Item! </h2>
+<% else %>
+  <h2> Everyday Value! </h2>
+<% end %>
+<img class="resize" src= <%= @shoe.image %> >
 
+<div class="show-shoe">
 <%= link_to "Edit Shoe", "/shoes/#{ @shoe.id }/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Shoe", "/shoes/#{ @shoe.id }", method: :delete, class: "btn btn-danger" %>
+</div>

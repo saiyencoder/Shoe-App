@@ -8,6 +8,9 @@ class ShoesController < ApplicationController
     discount_items = params[:discount]
     random_shoe = params[:random]
 
+    # order_attribute = params[:sort_order]
+    # discount_amount = params[:discount]
+
     if sort_attribute
       @shoes = @shoes.order(sort_attribute)
     end
@@ -16,15 +19,20 @@ class ShoesController < ApplicationController
       @shoes = @shoes.order(sort_attribute).reverse
     end
 
-    if sort_attribute && discount_items
-      @shoes = Shoe.where("price < ?", 120)
-    end
+    # if discount_amount
+    #   @shoes = Shoe.where("price < ?", discount_amount)
+    # end
 
     # if sort_attribute && random_shoe
     #   random_shoe_id = rand(1..Shoe.count)
     #   @shoes = Shoe.find(random_shoe_id)
     #   redirect_to '/shoes/#{ @shoes }'
-    # end
+    # 
+
+  def random
+    shoe_id = Shoe.all.sample.id
+    redirect_to "/shoes/#{shoe.id}"
+  end
 
 
   end
@@ -38,7 +46,8 @@ class ShoesController < ApplicationController
                       name: params[:name],
                       color: params[:color],
                       image: params[:image],
-                      price: params[:price]
+                      price: params[:price],
+                      supplier_id: params[:supplier_id]
                       )
 
     shoe.save

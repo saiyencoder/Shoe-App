@@ -1,5 +1,13 @@
 class Shoe < ApplicationRecord
 
+  # def supplier
+  #   Supplier.find_by(id: self.supplier_id)  
+  # end
+
+  belongs_to :supplier
+  has_many :images
+  has_many :orders
+
   def discounted?
     price < 120
   end
@@ -11,5 +19,6 @@ class Shoe < ApplicationRecord
   def total
     price + tax
   end
+
 
 end

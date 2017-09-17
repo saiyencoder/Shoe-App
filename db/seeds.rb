@@ -1,39 +1,11 @@
-shoe = Shoe.new(
-                name: "Kobe 11",
-                color: "Red & Black",
-                image: "https://images.solecollector.com/complex/image/upload/c_fill,f_auto,fl_lossy,q_auto,w_800/nike-kobe-11_i8fbna",
-                price: 100
-                )
-shoe.save
+# Supplier.create(name: "Footlocker", email: "footlocker@lockerroom.com", phone: "1-800-481-7564")
+# Supplier.create(name: "Champs", email: "champs@champions.com", phone: "1-800-983-1632")
+# Supplier.create(name: "Nike Store", email: "nikestore@nike.com", phone: "1-800-538-0921")
 
-shoe = Shoe.new(
-                name: "Jordan retro 13",
-                color: "Red & Black",
-                image: "https://images.solecollector.com/complex/image/upload/yhit8nc3gaoinbtx2jiv.jpg",
-                price: 140
-                )
-shoe.save
-
-shoe = Shoe.new(
-                name: "Lebron Soldier 10",
-                color: "Red & Black",
-                image: "https://images3.nike.com/is/image/DotCom/PDP_HERO_ZOOM/844378_006_C_PREM/zoom-lebron-soldier-10-sfg-basketball-shoe.jpg",
-                price: 110
-                )
-shoe.save
-
-shoe = Shoe.new(
-                name: "Rose 1",
-                color: "Red",
-                image: "https://images.solecollector.com/complex/image/upload/mbxc19h4ujc7k3kqjwzm.jpg",
-                price: 100
-                )
-shoe.save
-
-shoe = Shoe.new(
-                name: "Rose 1.5",
-                color: "Black",
-                image: "http://14042-presscdn-0-36.pagely.netdna-cdn.com/wp-content/uploads/2015/07/Adizero-1.5-Derrick-Rose-.jpg",
-                price: 100
-                )
-shoe.save
+# Image.create(shoe_id: , url: "https://images.solecollector.com/complex/image/upload/c_fill,f_auto,fl_lossy,q_auto,w_800/nike-kobe-11_i8fbna")
+# Image.create(shoe_id: , url: "https://images.solecollector.com/complex/image/upload/yhit8nc3gaoinbtx2jiv.jpg")
+# Image.create(shoe_id: , url: "https://images3.nike.com/is/image/DotCom/PDP_HERO_ZOOM/844378_006_C_PREM/zoom-lebron-soldier-10-sfg-basketball-shoe.jpg")
+# Image.create(shoe_id: , url: "https://images.solecollector.com/complex/image/upload/mbxc19h4ujc7k3kqjwzm.jpg")
+# Image.create(shoe_id: , url: "https://s7d2.scene7.com/is/image/dkscdn/16ADIMHRDN1BLKRD1PRF_Red_White_is/")
+# Image.create(shoe_id: , url: "https://sneakernews.com/wp-content/uploads/2017/04/nike-pg-1-black-white-hyper-turquoise-878627-001-1.jpg")
+# Image.create(shoe_id: , url: "http://14042-presscdn-0-36.pagely.netdna-cdn.com/wp-content/uploads/2015/07/Adizero-1.5-Derrick-Rose-.jpg")

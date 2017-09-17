@@ -11,7 +11,18 @@
 <% end %>
 <img class="resize" src= <%= @shoe.image %> >
 
+<div class="checkoutbox">
+  <%= form_tag '/order', mehtod: :post do %>
+    <h2>Checkout</h2>
+    <h3>Quantity: <input type="text" name="quantity"></h3>
+    <input type="submit" value="Buy Now">
+  <% end %>
+</div>
+
+
 <div class="show-shoe">
 <%= link_to "Edit Shoe", "/shoes/#{ @shoe.id }/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Shoe", "/shoes/#{ @shoe.id }", method: :delete, class: "btn btn-danger" %>
 </div>
+
+<h6>Supplier: <%= @shoe.supplier.name %></h6>

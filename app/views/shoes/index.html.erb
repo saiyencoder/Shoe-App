@@ -6,6 +6,8 @@
           <h2>Color: <%= shoe.color%></h2>
           <h2>Price: $<%= shoe.price%></h2>
           <img src="<%= shoe.image %>" alt="" >
+          <% @categories.all.each do |category|%>
+          <h2>Brand: <%= category.name %></h2>
         </div>
       </div>
   <% end %>

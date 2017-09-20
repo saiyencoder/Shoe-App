@@ -3,13 +3,19 @@ class ShoesController < ApplicationController
   def index
     @shoes = Shoe.all
 
+
     sort_attribute = params[:sort]
     desc_sort_attribute = params[:desc]
     discount_items = params[:discount]
     random_shoe = params[:random]
+    category_attribute = params[:category]
 
     # order_attribute = params[:sort_order]
     # discount_amount = params[:discount]
+    if category_attribute
+      cat = Category.find_by(name: category_attribute)
+      @shoes = cat.shoes
+    end
 
     if sort_attribute
       @shoes = @shoes.order(sort_attribute)

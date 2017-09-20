@@ -12,9 +12,10 @@
 <img class="resize" src= <%= @shoe.image %> >
 
 <div class="checkoutbox">
-  <%= form_tag '/order', mehtod: :post do %>
+  <%= form_tag '/orders', method: :post do %>
     <h2>Checkout</h2>
     <h3>Quantity: <input type="text" name="quantity"></h3>
+    <input type="hidden" name="shoe_id" value="<%= @shoe.id %>"></h3>
     <input type="submit" value="Buy Now">
   <% end %>
 </div>

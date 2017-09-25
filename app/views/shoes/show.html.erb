@@ -1,6 +1,6 @@
 <h1>Shoe Info</h1>
 <h2>Name: <%= @shoe.name %> </h2>
-<h2>Description: <%= @shoe.color %> </h2>
+<h2>Color Way: <%= @shoe.color %> </h2>
 <h2 class="<%= "red-price" if @shoe.discounted? %>" >Price: <%= number_to_currency(@shoe.price) %> </h2> 
 <h2>Tax: <%= number_to_currency(@shoe.tax) %></h2>
 <h2>Total: <%= number_to_currency(@shoe.total) %></h2>
@@ -9,14 +9,15 @@
 <% else %>
   <h2> Everyday Value! </h2>
 <% end %>
-<img class="resize" src= <%= @shoe.image %> >
-
+<% @shoe.images.each do |image| %>
+  <img class="resize" src="<%= image.url%>" alt="<%= @shoe.name %>">  
+<% end %>
 <div class="checkoutbox">
   <%= form_tag '/orders', method: :post do %>
     <h2>Checkout</h2>
     <h3>Quantity: <input type="text" name="quantity"></h3>
     <input type="hidden" name="shoe_id" value="<%= @shoe.id %>"></h3>
-    <input type="submit" value="Buy Now">
+    <input type="submit" value="Add to Cart">
   <% end %>
 </div>
 
@@ -26,4 +27,19 @@
 <%= link_to "Delete Shoe", "/shoes/#{ @shoe.id }", method: :delete, class: "btn btn-danger" %>
 </div>
 
+
+<h5>Categories</h5>
+  <ul>
+    <% @shoe.categories.each do |category| %>
+        <li><%= category.name %></li>
+    <% end %>
+  </ul>
 <h6>Supplier: <%= @shoe.supplier.name %></h6>
+
+
+
+
+
+
+
+

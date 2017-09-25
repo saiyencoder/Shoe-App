@@ -1,12 +1,10 @@
 class Order < ApplicationRecord
-  belongs_to :shoe, optional: true
-  belongs_to :user, optional: true
-
-  # def initialize(options_hash)
-  #   super(options_hash)
-  #   calculate_totals
-  # end
-
+  # belongs_to :shoe, optional: true
+  # belongs_to :user, optional: true
+  has_many :carted_shoes
+  has_many :shoes, through: :carted_shoes
+  has_many :carted_shoes
+  has_many :users, through: :carted_shoes
 
   def calculate_subtotal
     self.subtotal = shoe.price * quantity

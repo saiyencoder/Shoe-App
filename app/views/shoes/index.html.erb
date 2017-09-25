@@ -1,14 +1,21 @@
-<div>
-  <% @shoes.each do |shoe| %>
-      <div class="col-md-4 col-sm-6 product-index-single col-container">
-        <div class="well">
-          <h2>Name:  <a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></h2>
-          <h2>Color: <%= shoe.color%></h2>
-          <h2>Price: $<%= shoe.price%></h2>
-          <img src="<%= shoe.image %>" alt="" >
-          <% @categories.all.each do |category|%>
-          <h2>Brand: <%= category.name %></h2>
-        </div>
-      </div>
+<section>
+
+<% @shoes.each_slice(3) do |shoe_slice|  %>
+    <div class="row">
+
+      <% shoe_slice.each do |shoe| %>
+
+          <div class="col-md-4 col-sm-6 product-index-single">
+            <div class="well">
+              <h2>Name:  <a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></h2>
+              <h2>Color: <%= shoe.color%></h2>
+              <h2>Price: <%= number_to_currency(shoe.price)%></h2>
+              <img src="<%= shoe.default_image %>" alt="" >
+            </div>
+          </div>
+
+      <% end %>
+    </div>
   <% end %>
-</div>
+</section>
+

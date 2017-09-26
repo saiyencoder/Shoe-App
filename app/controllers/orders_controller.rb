@@ -1,16 +1,17 @@
 class OrdersController < ApplicationController
 
   def create
+    carted_shoes = current_user.carted_shoes
 
-    order = Order.new(
-                      user_id: current_user.id,
-                      shoe_id: params[:shoe_id],
-                      quantity: params[:quantity]
-                      )
+    if carted_shoes.status == "Carted"
+      order = Order.new(
+                        user_id: current_user.id,
+                        )
 
-   order.calculate_totals
+      order.calculate_totals
 
-    order.save
+      order.save
+    end
     flash[:success] = "Shoe has been added to the order."
     redirect_to "/orders/#{order.id}"
   end

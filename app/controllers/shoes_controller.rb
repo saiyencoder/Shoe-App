@@ -37,6 +37,7 @@ class ShoesController < ApplicationController
   end
 
   def create
+    
     shoe = Shoe.new(
                       name: params[:name],
                       color: params[:color],
@@ -51,6 +52,7 @@ class ShoesController < ApplicationController
 
   def show
     @shoe = Shoe.find(params[:id])
+    @user = User.all
   end
 
   def edit

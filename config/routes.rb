@@ -17,6 +17,22 @@ Rails.application.routes.draw do
   patch '/suppliers/:id' => 'suppliers#update'
   delete '/suppliers/:id' => 'suppliers#destroy'
 
+  get '/carted_shoes' => 'carted_shoes#index'
+  get '/carted_shoes/new' => 'carted_shoes#new'
+  post '/carted_shoes' => 'carted_shoes#create'
+  get '/carted_shoes/:id' => 'carted_shoes#show'
+  get '/carted_shoes/:id/edit' => 'carted_shoes#edit'
+  patch '/carted_shoes/:id' => 'carted_shoes#update'
+  delete '/carted_shoes/:id' => 'carted_shoes#destroy'
+
+  get '/orders' => 'orders#index'
+  get '/orders/new' => 'orders#new'
+  post '/orders' => 'orders#create'
+  get '/orders/:id' => 'orders#show'
+  get '/orders/:id/edit' => 'orders#edit'
+  patch '/orders/:id' => 'orders#update'
+  delete '/orders/:id' => 'orders#destroy'
+  
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
@@ -24,9 +40,5 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/orders' => 'orders#index'
-  get '/orders/new' => 'orders#new'
-  post '/orders' => 'orders#create'
-  get '/orders/:id' => 'orders#show'
 
 end

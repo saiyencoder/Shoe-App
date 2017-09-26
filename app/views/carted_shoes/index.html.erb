@@ -1,0 +1,11 @@
+<h1>Checkout Cart</h1>
+<% @carted_shoes.each do |carted| %>
+  <% if carted.status == "Carted" %>
+    <h2>Shoe: <%= carted.shoe.name %></h2>
+  <% end %>
+<% end %>
+<div>
+  <%= form_tag "/orders", method: :post do %>
+    <input type="submit" value="Buy Now">
+  <% end %>
+</div>

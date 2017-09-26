@@ -13,14 +13,14 @@
   <img class="resize" src="<%= image.url%>" alt="<%= @shoe.name %>">  
 <% end %>
 <div class="checkoutbox">
-  <%= form_tag '/orders', method: :post do %>
+  <%= form_tag '/carted_shoes', method: :post do %>
     <h2>Checkout</h2>
     <h3>Quantity: <input type="text" name="quantity"></h3>
     <input type="hidden" name="shoe_id" value="<%= @shoe.id %>"></h3>
+    <input type="hidden" name="status" value="Carted"></h3>
     <input type="submit" value="Add to Cart">
   <% end %>
 </div>
-
 
 <div class="show-shoe">
 <%= link_to "Edit Shoe", "/shoes/#{ @shoe.id }/edit", class: "btn btn-warning" %>

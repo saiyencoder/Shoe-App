@@ -1,5 +1,5 @@
 class CartedShoe < ApplicationRecord
-  belongs_to :order
+  belongs_to :order, optional: true
   belongs_to :shoe
   belongs_to :user
 end
@@ -10,6 +10,3 @@ end
 
 
 
-
-#Stat belongs_to :game
-      #has_one :season, through: :game

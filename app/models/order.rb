@@ -1,13 +1,14 @@
 class Order < ApplicationRecord
-  # belongs_to :shoe, optional: true
-  # belongs_to :user, optional: true
+  belongs_to :user, optional: true
   has_many :carted_shoes
   has_many :shoes, through: :carted_shoes
-  has_many :carted_shoes
-  has_many :users, through: :carted_shoes
 
   def calculate_subtotal
-    self.subtotal = shoe.price * quantity
+    sum = 0
+    carted_shoes.each do |carted_shoe|
+      sum += carted_shoe.subtotal
+    end
+    self.subtotal = sum
   end
 
   def calculate_tax
@@ -22,6 +23,7 @@ class Order < ApplicationRecord
     calculate_subtotal
     calculate_tax
     calculate_total
+    save
   end
-
+  
 end

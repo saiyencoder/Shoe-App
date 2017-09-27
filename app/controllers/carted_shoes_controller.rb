@@ -1,7 +1,12 @@
 class CartedShoesController < ApplicationController
 
 def index
-  @carted_shoes = CartedShoe.all
+  if current_user && current_user.current_cart.any?
+    @carted_shoes = current_user.current_cart
+  else
+    flash[:warning] = "The cart is empty"
+    redirect_to '/'
+  end
   
 end
 
@@ -14,7 +19,7 @@ def create
                                 user_id: current_user.id,
                                 shoe_id: params[:shoe_id],
                                 quantity: params[:quantity],
-                                status: params[:status]
+                                status: "carted"
                               )
 
   carted_shoe.save
@@ -36,7 +41,10 @@ def update
 end
 
 def destroy
-  
+  carted_shoe = CartedShoe.find(params[:id])
+  carted_shoe.update(status: "removed")
+  flash[:success] = "Shoe Removed"
+  redirect_to "/carted_shoes"
 end
 
 end

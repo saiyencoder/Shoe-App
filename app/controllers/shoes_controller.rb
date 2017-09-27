@@ -1,4 +1,5 @@
 class ShoesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :random]
 
   def index
     @shoes = Shoe.all

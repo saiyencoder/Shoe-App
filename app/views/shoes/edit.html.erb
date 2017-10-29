@@ -1,17 +1,1 @@
-<h1>Edit Shoe</h1>
-
-<%= form_tag "/shoes/#{@shoe.id}", method: :patch do %>
-  <div>
-    Name: <input type="text" name="name" value="<%= @shoe.name %>">
-  </div>
-  <div>
-    Color: <input type="text" name="color" value="<%= @shoe.color %>">
-  </div>
-  <div>
-    Image: <input type="text" name="image" value="<%= @shoe.image %>">
-  </div>
-  <div>
-    Price: <input type="text" name="price" value="<%= @shoe.price %>">
-  </div>
-  <input type="submit" name="Update Shoe" class="btn btn-success">
-<% end %>
+<%= render "form", purpose: "Edit", url: "/shoes/#{@shoe.id}", verb: :patch %>

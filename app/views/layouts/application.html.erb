@@ -9,11 +9,6 @@
   </head>
 
   <body>
-<!--     <div class="headers">
-    <h1><a href="/">Shoe Shop</a></h1>
-    <p><a href="/shoes/new">New Shoe</a></p>
-    </div> -->
-<!--  -->
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -38,9 +33,6 @@
               <ul class="dropdown-menu">
                 <li><a href="/?sort=price">Sort by Price (Low->Hi)</a></li>
                 <li><a href="/?sort=price&sort_order=desc">Sort by Price (Hi->Low)</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
                 <li role="separator" class="divider"></li>
 
                 <% if  current_user %>
@@ -57,7 +49,7 @@
 
           <%= form_tag "/shoes", method: :get, class: "navbar-form navbar-left" do %>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" name="search_term">
+              <input type="text" class="form-control" placeholder="Search" name="search_term" >
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           <% end %>

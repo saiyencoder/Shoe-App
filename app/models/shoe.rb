@@ -1,10 +1,16 @@
-class Shoe < ApplicationRecord
+ class Shoe < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :category_shoes
   has_many :categories, through: :category_shoes
   has_many :carted_shoes
   has_many :orders, through: :carted_shoes
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :color, length: {minimum: 3}
 
   def discounted?
     price < 120

@@ -1,0 +1,33 @@
+<h1><%= purpose %> Shoe</h1>
+
+<% if @shoe.errors.any? %>
+  <div id="error_explination">
+    <h2><%= pluralize(@shoe.errors.count, "error") %>, please fix following issues:</h2>
+    <ul>
+      <% @shoe.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag url, method: verb do %>
+    <div>
+    Name: <input type="text" name="name" value="<%= @shoe.name %>">
+  </div>
+  <div>
+    Color: <input type="text" name="color" value="<%= @shoe.color %>">
+  </div>
+  <div>
+    Price: <input type="text" name="price" value="<%= @shoe.price %>">
+  </div>
+    <div>
+    Supplier: 
+    <select name="supplier_id" >
+      <% @suppliers.each do |supplier| %>
+        <option value="<%= supplier.id %>" <%= 'selected="selected"' if supplier.id == @shoe.supplier_id%>><%= supplier.name %></option>      
+      <% end %>
+    </select>
+  </div>
+  <input type="submit" name="<%= purpose %> Shoe">
+<% end %>

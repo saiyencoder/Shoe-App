@@ -35,20 +35,26 @@ class ShoesController < ApplicationController
 
   def new
     @suppliers = Supplier.all
+    @shoe = Shoe.new
   end
 
   def create
     
-    shoe = Shoe.new(
+    @shoe = Shoe.new(
                       name: params[:name],
                       color: params[:color],
                       price: params[:price],
                       supplier_id: params[:supplier_id]
                       )
 
-    shoe.save
-    flash[:success] = "Shoe Successfully Created"
-    redirect_to '/shoes/#{ @shoes.id }'
+    if @shoe.save
+      flash[:success] = "Shoe Successfully Created"
+      redirect_to '/shoes/#{ @shoes.id }'
+    else
+      @suppliers = Supplier.all
+      render "new.html.erb"
+    end
+
   end
 
   def show
@@ -62,16 +68,20 @@ class ShoesController < ApplicationController
   end
 
   def update
-    shoe = Shoe.find(params[:id])
+    @shoe = Shoe.find(params[:id])
 
-    shoe.assign_attributes(
+    @shoe.assign_attributes(
                             name: params[:id],
                             color: params[:id],
                             price: params[:id]
                             )
-    shoe.save
-    flash[:success] = "Shoe Successfully Updated"
-    redirect_to '/shoes/#{ @shoe.id }'
+    if @shoe.save
+      flash[:success] = "Shoe Successfully Updated"
+      redirect_to '/shoes/#{ @shoe.id }'
+    else
+      @suppliers = Supplier.all
+      render "new.html.erb"
+    end
   end
 
   def destroy
